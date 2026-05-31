@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import { AddToList } from "./_components/addToList";
-import { RemoveToList } from "./_components/removeToList";
-import { CompletedToList } from "./_components/completedToList";
-import { RemoveAllToList } from "./_components/removeAllToList";
+import { AddToList } from "./components/addToList";
+import { RemoveToList } from "./components/removeToList";
+import { CompletedToList } from "./components/completedToList";
+import { RemoveAllToList } from "./components/removeAllToList";
 
 interface Todo {
   id: number;
@@ -63,7 +63,7 @@ export const Home = () => {
       <h1 className="text-3xl font-bold text-center mb-4 uppercase">
         To Do List
       </h1>
-      <div className="shadow-[0_0_10px_rgba(0,0,0,0.1)] p-4 w-80 rounded-lg">
+      <div className="shadow-[0_0_10px_rgba(0,0,0,0.1)] p-4 pt-6 w-85 rounded-lg">
         <AddToList onAdd={handleAdd} />
         <RemoveAllToList onRemoveAll={handleRemoveAll} />
         <div className="relative mt-4">
@@ -76,17 +76,17 @@ export const Home = () => {
                 >
                   <span
                     className={
-                      item.completed ? "line-through text-zinc-400" : ""
+                      item.completed ? "line-through text-zinc-400 capitalize " : " capitalize"
                     }
                   >
                     {item.label}
                   </span>
                   <div className="flex gap-2">
-                    <RemoveToList onRemove={handleRemove} id={item.id} />
                     <CompletedToList
                       onCompleted={handleCompleted}
                       id={item.id}
                     />
+                    <RemoveToList onRemove={handleRemove} id={item.id} />
                   </div>
                 </li>
               ))
