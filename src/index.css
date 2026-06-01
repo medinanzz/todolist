@@ -1,1 +1,47 @@
 @import 'tailwindcss';
+
+.animate-show {
+    animation: show 0.5s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.animate-show:nth-child(1) {
+    --delay: .3s;
+}
+.animate-show:nth-child(2) {
+    --delay: .6s;
+}
+
+/* .animate-show:nth-child(3) {
+    --delay: .9s;
+}
+.animate-show:nth-child(4) {
+    --delay: 1.2s;
+}
+.animate-show:nth-child(5) {
+    --delay: 1.6s;
+} */
+
+.animate-show-li {
+    animation: show 0.5s ease-out forwards;
+    animation-delay: 0s;
+    transform: translateY(20px);
+    opacity: 0;
+}
+.animate-show-li-hide {
+    animation: hide 0.3s ease-out forwards;
+}
+@keyframes show {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes hide {
+    to {
+        opacity: 0;
+        transform: translateY(0px) translateX(100%);
+    }
+}
