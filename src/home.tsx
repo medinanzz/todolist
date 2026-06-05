@@ -5,6 +5,7 @@ import { RemoveToList } from "./components/removeToList";
 import { CompletedToList } from "./components/completedToList";
 import { RemoveAllToList } from "./components/removeAllToList";
 import { FiCheck, FiX } from "react-icons/fi";
+import { DarkMode } from "./themes";
 
 interface Todo {
   id: number;
@@ -77,11 +78,11 @@ export const Home = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col pl-2 pr-2 ">
+    <div className="min-h-screen flex items-center justify-center flex-col pl-2 pr-2 dark:bg-[#111827] dark:text-white ">
       <h1 className="text-3xl font-bold text-center mb-4 uppercase animate-show">
         To Do List
       </h1>
-      <div className="shadow-[0_0_10px_rgba(0,0,0,0.2)] p-4 pt-6 max-w-85 w-full rounded-lg animate-show">
+      <div className="shadow-[0_0_10px_rgba(0,0,0,0.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.2)] p-4 pt-6 max-w-85 w-full rounded-lg animate-show">
         <AddToList onAdd={handleAdd}>Adicionar na lista</AddToList>
         <RemoveAllToList onRemoveAll={handleRemoveAll}>
           Remover todos
@@ -90,21 +91,21 @@ export const Home = () => {
           <ul
             className={`w-full flex flex-col p-2 transition-all duration-200 gap-2 ${
               list.length === 0
-                ? "items-center justify-center h-20"
-                : "h-50 overflow-y-auto overflow-x-hidden"
+              ? "items-center justify-center h-20"
+              : "h-50 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 dark:scrollbar-thumb-gray-700 dark:scrollbar-track-gray-900"
             }`}
           >
             {list.length > 0 ? (
               list.map((item) => (
                 <li
                   key={item.id}
-                  className={`rounded-md hover:shadow-[0_2px_10px_rgb(0,0,0,.2)] w-full p-3 transition-all duration-100 flex justify-between items-center ${item.removing ? "animate-show-li-hide" : "animate-show-li"}`}
-                >
+                  className={`rounded-md hover:shadow-[0_2px_10px_rgb(0,0,0,.2)] dark:hover:shadow-[0_2px_10px_rgb(255,255,255,.2)] w-full p-3 transition-all duration-100 flex justify-between items-center ${item.removing ? "animate-show-li-hide" : "animate-show-li"}`}
+                  >
                   <span
                     className={
                       item.completed
-                        ? "line-through text-zinc-400 capitalize "
-                        : " capitalize"
+                      ? "line-through text-zinc-400 capitalize "
+                      : " capitalize"
                     }
                   >
                     {item.label}
@@ -127,6 +128,7 @@ export const Home = () => {
           </ul>
         </div>
       </div>
+<DarkMode />
     </div>
   );
 };

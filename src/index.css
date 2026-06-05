@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 .animate-show {
     animation: show 0.5s ease-out forwards;
@@ -13,16 +14,10 @@
 .animate-show:nth-child(2) {
     --delay: .6s;
 }
-
-/* .animate-show:nth-child(3) {
+.animate-show:nth-child(3) {
     --delay: .9s;
 }
-.animate-show:nth-child(4) {
-    --delay: 1.2s;
-}
-.animate-show:nth-child(5) {
-    --delay: 1.6s;
-} */
+
 
 .animate-show-li {
     animation: show 0.5s ease-out forwards;
